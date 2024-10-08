@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Recipecard.css">
+    <title>Interactive Recipe Card</title>
+</head>
+<body>
+    <div class="recipe-card">
+        <img src="C:/Users/PCSS/Documents/bowl.jpg" alt="Recipe Image">
+        <div class="hover-underline-animation">
+            <h1>Vegan Rice Bowl</h1>
+        </div>
+
+        <div class="details">
+            <p><strong>Preparation Time:</strong> 45 minutes</p>
+            <p><strong>Serving Size:</strong> 4 people</p>
+        </div>
+
+        <!-- Button to see full recipe -->
+        <button id="see-recipe-btn">See Recipe</button>
+
+        <!-- Ingredients and full recipe -->
+        <div id="recipe-details" class="hidden">
+            <h2>Ingredients</h2>
+            <ul id="ingredients-list">
+                <li>2 cups rice</li>
+                <li>1/2 cup tofu</li>
+                <li>1 avocado</li>
+                <li>2 tbsp soy sauce</li>
+                <li>1 tbsp sesame oil</li>
+                <li>1 cup vegetables (carrots, cucumbers)</li>
+            </ul>
+
+            <h2>Full Recipe</h2>
+            <ul id="full-recipe">
+                <li>Prepare the rice: Cook 2 cups of rice according to the package instructions. Once done, set it aside.</li>
+                <li>Cook the tofu: Heat a non-stick pan over medium heat, add sesame oil, and fry tofu until golden brown. Drizzle soy sauce and cook for another minute.</li>
+                <li>Prepare vegetables: Julienne the carrots and cucumbers, sauté lightly, or leave raw for a crunchy texture.</li>
+                <li>Assemble the bowl: Start with a serving of rice, topped with tofu, avocado, and vegetables.</li>
+                <li>Add flavor: Drizzle remaining soy sauce and add optional sesame seeds or more sesame oil.</li>
+                <li>Serve: Enjoy your vegan rice bowl warm or at room temperature!</li>
+            </ul>
+        </div>
+
+        <!-- Button to start cooking -->
+        <button id="start-cooking-btn" class="hidden">Start Cooking</button>
+
+        <!-- Timer -->
+        <div id="timer" class="timer hidden">
+            <p>Time Elapsed: <span id="minutes">00</span>:<span id="seconds">00</span></p>
+        </div>
+
+        <!-- Step-by-step guide -->
+        <div id="recipe-steps" class="hidden">
+            <div class="step" id="step-1">
+                <h2>Step 1</h2>
+                <p>Prepare the rice: Cook 2 cups of rice according to the package instructions. Once done, set it aside.</p>
+                <div class="step-navigation">
+                    <button onclick="nextStep(2)">Next</button>
+                </div>
+            </div>
+
+            <div class="step" id="step-2" style="display: none;">
+                <h2>Step 2</h2>
+                <p>Cook the tofu: Heat a non-stick pan over medium heat, add sesame oil, and fry tofu until golden brown. Drizzle soy sauce and cook for another minute.</p>
+                <div class="step-navigation">
+                    <button onclick="nextStep(3)">Next</button>
+                    <button onclick="prevStep(1)">Previous</button>
+                </div>
+            </div>
+
+            <div class="step" id="step-3" style="display: none;">
+                <h2>Step 3</h2>
+                <p>Prepare vegetables: Julienne the carrots and cucumbers. Sauté lightly or leave raw for a crunchy texture.</p>
+                <div class="step-navigation">
+                    <button onclick="nextStep(4)">Next</button>
+                    <button onclick="prevStep(2)">Previous</button>
+                </div>
+            </div>
+
+            <div class="step" id="step-4" style="display: none;">
+                <h2>Step 4</h2>
+                <p>Assemble the bowl: Start with a serving of rice, topped with tofu, avocado, and vegetables.</p>
+                <div class="step-navigation">
+                    <button onclick="nextStep(5)">Next</button>
+                    <button onclick="prevStep(3)">Previous</button>
+                </div>
+            </div>
+
+            <div class="step" id="step-5" style="display: none;">
+                <h2>Step 5</h2>
+                <p>Add flavor: Drizzle remaining soy sauce and add optional sesame seeds or more sesame oil.</p>
+                <div class="step-navigation">
+                    <button onclick="nextStep(6)">Next</button>
+                    <button onclick="prevStep(4)">Previous</button>
+                </div>
+            </div>
+
+            <div class="step" id="step-6" style="display: none;">
+                <h2>Step 6</h2>
+                <p>Serve: Enjoy your vegan rice bowl warm or at room temperature!</p>
+                <div class="step-navigation">
+                    <button onclick="finishCooking()">Finish</button>
+                    <button onclick="prevStep(5)">Previous</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Congratulations message -->
+    <div class="congratulations" id="congratulations-message" style="display: none;">
+        🎉 Congratulations! You have finished cooking! 🎉
+    </div>
+
+    <script src="Recipecard.js"></script>
+</body>
+</html>
